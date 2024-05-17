@@ -14,15 +14,15 @@ const movieModel = sequelize.define('Movie', {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    price: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-    },
     yearPublication: {
         type: DataTypes.DATE,
         allowNull: false,
     },
     genre: {
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    actors: {
         type: DataTypes.STRING,
         allowNull: false,
     },
