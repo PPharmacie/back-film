@@ -1,0 +1,28 @@
+{
+  "name": "backend-movie",
+  "version": "1.0.0",
+  "description": "backend for movie-app using TmDb",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "PP"
+  },
+  "keywords": [
+    "movie",
+    "project-management",
+    "api;",
+    "TmDb"
+  ],
+  "author": "aguenou",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.3.5",
+    "pg-promise": "^11.6.0",
+    "sequelize": "^6.37.3"
+  }
+}
