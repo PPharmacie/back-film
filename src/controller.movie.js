@@ -18,7 +18,7 @@ const getMovies = async (req, res) =>{
 
 const getMovieById = async (req, res) =>{
     try{
-        const movie = await Movie.findOne({ where:{id: req.params.id}});  
+        const movie = await Movie.findOne({ where:{id: req.params.id}});
         res.status(200).json(movie);
     }catch(error){
         if (error.name === 'SequelizeValidationError') {
