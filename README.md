@@ -26,6 +26,7 @@ class movie {
 }
 ```
 
+[Lien vers la doc Postman et les tests](https://documenter.getpostman.com/view/25420143/2sA3JT3JB1).
 Pour lancer l'application, utilisez la commande:
  ``` node app.js ```. 
 Installez les dépendances nécessaires pour le projet avec ```npm install``` 
