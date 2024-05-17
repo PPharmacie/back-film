@@ -55,37 +55,37 @@ const registerUser = asyncHandler(async (req, res)=>{
   
  
 // // connexion d'un utilisateur
-// const loginUser = asyncHandler(async(req,res)=>{
-//     try{
-//       const {email,password} = req.body;
-//       if(!(email && password)){
-//           res.status(400).json({message:'Veuillez remplir tous les champs' });
-//           throw new Error('Veuillez remplir tous les champs');
-//       }else{
-//         const userExist = await User.findOne({where:{email:req.body.email}});
-//         if(userExist && (await bcrypt.compare(password, userExist.password))){
-//           let token = await Token.findOne({ userId: userExist.id });
-//           if (!token) {
-//               token = await new Token({
-//                   userId: userExist.id,
-//                   token: generateToken(),
-//               }).save();
-//           }
-//           res.status(200).json({
-//             id: userExist.id,
-//             email: userExist.email,
-//             token: token.token
-//           })
-//         }else{
-//           res.status(400).json({message: 'Veuillez vérifier les données entrées'}); 
-//           throw new Error("Veuillez vérifier les données entrées ");
-//         }
-//       }
+const loginUser = asyncHandler(async(req,res)=>{
+    try{
+      const {email,password} = req.body;
+      if(!(email && password)){
+          res.status(400).json({message:'Veuillez remplir tous les champs' });
+          throw new Error('Veuillez remplir tous les champs');
+      }else{
+        const userExist = await User.findOne({where:{email:req.body.email}});
+        if(userExist && (await bcrypt.compare(password, userExist.password))){
+          let token = await Token.findOne({ userId: userExist.id });
+          if (!token) {
+              token = await new Token({
+                  userId: userExist.id,
+                  token: generateToken(),
+              }).save();
+          }
+          res.status(200).json({
+            id: userExist.id,
+            email: userExist.email,
+            token: token.token
+          })
+        }else{
+          res.status(400).json({message: 'Veuillez vérifier les données entrées'}); 
+          throw new Error("Veuillez vérifier les données entrées ");
+        }
+      }
   
-//     }catch(error){
-//       res.status(400).json({ error: error.message });
-//     }
-//   })
+    }catch(error){
+      res.status(400).json({ error: error.message });
+    }
+  })
 
   module.exports = {
     loginUser,
