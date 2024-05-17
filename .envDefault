@@ -1,0 +1,5 @@
+USER=database_user
+PASSWORD=databse_password
+DATABASE=database_name
+PORT=port
+JWT_SECRET=1233
