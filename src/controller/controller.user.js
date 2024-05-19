@@ -17,7 +17,7 @@ const registerUser = asyncHandler(async (req, res)=>{
       throw new Error('Veuillez remplir tous les champs');
     }
   
-    const userExist = await User.findOne({where:{email: req.body.email}})
+    const userExist = await User.findOne( {where:{email: req.body.email}})
   
     if (userExist){
         res.status(400).json({message: 'Email déjà utilisé'})
