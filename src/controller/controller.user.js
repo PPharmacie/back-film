@@ -28,6 +28,7 @@ const registerUser = asyncHandler(async (req, res)=>{
     const hashPassword = await bcrypt.hash(password, salt);
   
     const user = await User.create({
+        id,
         email,
         password:hashPassword,
         name,
@@ -43,7 +44,8 @@ const registerUser = asyncHandler(async (req, res)=>{
             }).save();
         }
         res.status(201).json({
-            _id: user.id,
+            message: "Utilisateur inscrit",
+            id: user.id,
             email:user.email,
             token: token.token
         })
@@ -72,6 +74,7 @@ const loginUser = asyncHandler(async(req,res)=>{
               }).save();
           }
           res.status(200).json({
+            message: "utilisateur connecté",
             id: userExist.id,
             email: userExist.email,
             token: token.token
